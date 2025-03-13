@@ -80,7 +80,9 @@ try{
         return res.status(400).json({message:'User not found'});
     }
 
-    const otp= crypto.randomInt(100000,999999).toString();
+    // const otp= crypto.randomInt(100000,999999).toString();
+    const otp = crypto.randomInt(100000, 999999).toString();
+    console.log('Generated OTP:', otp);
 
     user.otp = otp;console.log(otp);
   
@@ -89,6 +91,7 @@ try{
     await user.save();
 
     await sendOtp(email,otp);
+    console.log(`Sending OTP to ${email}: ${otp}`);
     return res.status(200).json({message:'OTP sent to email'});
 }catch(err){
     return res.status(500).json({message:'Server error'})
