@@ -18,12 +18,25 @@ app.use(express.json());
 
 
 
-app.use(cors({
-  origin: 'https://server-mern-1-7v7o.onrender.com', // Allow only your frontend origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
+const allowedOrigins = [
+  'http://localhost:5173', // Localhost for development
+  'https://rental-application-three.vercel.app' // Vercel for production
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  })
+);
 
 
 
