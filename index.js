@@ -17,26 +17,17 @@ const app = express();
 app.use(express.json());
 
 
-// app.use(cors({
-//   origin: '*',
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//   credentials: true
-// })); 
 
-const allowedOrigins = ['http://localhost:5173', 'https://server-mern-1-7v7o.onrender.com'];
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: 'https://server-mern-1-7v7o.onrender.com', // Allow only your frontend origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+
+
+
 
 app.use('/auth',appRoute)
 app.use('/properties',listingRoutes)
