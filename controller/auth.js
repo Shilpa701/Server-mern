@@ -4,7 +4,7 @@ import crypto from 'crypto'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs';
 
-import {sendOtp} from '../utils/sendMail.js'
+import {sendOtp} from './utils/emailService.js'
 
 export const register = async (req,res)=>{
         const {username,email,password} = req.body;
