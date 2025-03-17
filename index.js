@@ -20,7 +20,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   'http://localhost:5173', 
-  'https://rental-application-68uf.vercel.app' 
+  'https://rental-application-three.vercel.app' 
 ];
 
 app.use(
