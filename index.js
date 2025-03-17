@@ -19,8 +19,8 @@ app.use(express.json());
 
 
 const allowedOrigins = [
-  'http://localhost:5173', // Localhost for development
-  'https://rental-application-three.vercel.app' // Vercel for production
+  'http://localhost:5173', 
+  'https://rental-application-68uf.vercel.app' 
 ];
 
 app.use(
