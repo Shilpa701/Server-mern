@@ -8,6 +8,9 @@ import bookingRoutes from './routes/booking.js'
 import userRoutes from './routes/userRoutes.js'
 import adminRoutes from "./routes/adminRoutes.js"; // Import admin routes
 import testimony from './routes/testimony.js'
+import review from './routes/review.js'
+
+
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -48,6 +51,7 @@ app.use("/api", bookingRoutes)
 app.use("/api",userRoutes)
 app.use("/api/admin", adminRoutes); // Register admin routes
 app.use("/test",testimony)
+app.use('/api/reviews',review)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

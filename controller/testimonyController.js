@@ -1,6 +1,9 @@
 import testimonials from '../model/TestimonyModel.js';
 import  Listing from '../model/Listing.js'
 import { log } from 'console';
+
+
+
 export const addTestimonyController = async (req, res) => {
     console.log("Inside addTestimonyController");
     const { name, email, message } = req.body;

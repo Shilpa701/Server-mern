@@ -14,6 +14,9 @@ router.put("/update-feedback-status/:id", UpdateFeedbackStatusController);
 
 router.get('/all-approved-feedback',getAllApprovedController)
 
+
+
+
 router.put("/properties/:id/status",UpdatePropertyStatusController);
 
 router.get('/all-approved-property',getAllApprovedPropertyController)
